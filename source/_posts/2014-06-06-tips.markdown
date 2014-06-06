@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Tips"
+date: 2014-06-06 18:12:17 +0100
+comments: true
+categories:
+---
+
+## How to use Octopress
+* After you've cloned the repo

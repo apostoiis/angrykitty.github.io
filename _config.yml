@@ -2,12 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://angrykitty.github.io
+title: Angry Kitty
+author: MA
 simple_search: https://www.google.com/search
-description:
+description: Final project at Makers Academy
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -63,38 +62,38 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
-github_repo_count: 0
-github_show_profile_link: true
-github_skip_forks: true
+# github_user: apostoiis
+# github_repo_count: 0
+# github_show_profile_link: true
+# github_skip_forks: true
 
 # Twitter
-twitter_user:
-twitter_tweet_button: true
+# twitter_user: apostoiis
+
 
 # Google +1
-google_plus_one: false
-google_plus_one_size: medium
+# google_plus_one: false
+
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user:
-googleplus_hidden: false
+# googleplus_user:
+# googleplus_hidden: true
 
-# Pinboard
-pinboard_user:
-pinboard_count: 3
+# # Pinboard
+# pinboard_user:
+# pinboard_count: 3
 
-# Delicious
-delicious_user:
-delicious_count: 3
+# # Delicious
+# delicious_user:
+# delicious_count: 3
 
-# Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+# # Disqus Comments
+# disqus_short_name:
+# disqus_show_comment_count: false
 
-# Google Analytics
-google_analytics_tracking_id:
+# # Google Analytics
+# google_analytics_tracking_id:
 
-# Facebook Like
-facebook_like: false
+# # Facebook Like
+# facebook_like: false
