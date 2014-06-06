@@ -7,4 +7,7 @@ categories:
 ---
 
 ## How to use Octopress
-* After you've cloned the repo
+After you've cloned the repo:
+```cd angrykitty-blod``` and run ```rake preview```. This runs as a Rakefile so it will normally run in localhost:4000 url as Rails. Everything is written in Markdown which is nice. It would be nice if we can keep it clean. You can put here anything interesting you will run into, so we can all learn from this. Have fun!
+
+If you want to add a new post you do that: ```rake new_post["title of the post"]``` and that generates a post inside the ```source/_posts```.
