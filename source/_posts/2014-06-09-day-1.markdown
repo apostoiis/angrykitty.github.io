@@ -1,0 +1,50 @@
+---
+layout: post
+title: "Hello, kitty!"
+date: 2014-06-09 20:00:11 +0100
+comments: true
+categories: 
+---
+
+Welcome to the birth place of Angry Kitty! 
+
+We are Apo, Dan, Nico, Robin, Scott, Sroop and Will from the March 2014 cohort of Makers Academy, London and this is our blog.
+
+We will be sharing our journey and the development processes behind Angry Kitty, an app designed to harass your friends for money they owe you for a group event you're all attending.
+
+Day One has kicked off to a pretty decent start. The repository is up on github; we have a list of "must have", "should have" and "would be nice to have" features; we've decided on the fewest and simplest features necessary to complete our first iteration of the app; we've paired off and assigned a feature per pair and mapped out every scenario for each feature; we have a task management system up on the white board; we've decided on and generated all of our models; and we've written all of our Cucumber feature tests.
+
+{% img [class names] ../images/WP_20140610_001.jpg [100%] [auto] [title text [alt text]] %}
+
+These are our models so far:
+
+* Event
+* User
+* Debt
+* Payment
+
+We also have our three classes to represent the three different types of emails we will be sending:
+
+* The event invitation
+* The chaser/harassment 
+* The payment confirmation
+
+We also need a scheduler to determine the date and frequency of messaging based on the time remaining till the payment due date (set by the organiser of an event) and the time a participant (a friend of the organiser) last received an email (the harassment). The scheduler then communicates with a rake task that then triggers the sending of messages based on these two variables.
+
+A topic of debate today was deciding how we were going to determine where the scheduler obtains its information from. It was unanimously agreed upon that we would be creating a join table between Events and Users: An event could have many users, and a user could be part of many events. But then we also needed a table identical to this one that contained more information to feed into our scheduler: the due_date and the last_harassment date. We also recognised that we needed some kind of model to represent a single Debt. That is, a list of users associated with an event with a payment status of 'false'. A debt belongs to a single user but a user could have many debts. Similarly, a debt belongs to an event but an event could have many debts. It is through this association that a User could have many Events and vice versa. The diagram in my notebook illustrates this concept. In this sense, our join table could also double up as our Debt model and so we went with this design by adding some additional columns "due_date" and "last_harassment". Here's a page from my notebook:
+
+{% img [class names] ../images/WP_20140610_003.jpg [100%] [auto] [title text [alt text]] %}
+
+Work on the scheduling formula has also kicked off today. The email messaging system as well as the event creation has also started to take shape. Oh, and some logo ideas are also brewing. So all in all, not a bad start.
+
+xoxo
+
+{% img [class names] ../images/WP_20140610_002.jpg [100%] [auto] [title text [alt text]] %}
+
+
+
+
+
+
+
+
