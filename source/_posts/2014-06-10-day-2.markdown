@@ -1,0 +1,30 @@
+---
+layout: post
+title: "day 2"
+date: 2014-06-10 23:04:55 +0100
+comments: true
+categories: 
+---
+
+Day 2 has finally come to a close and the project is moving forward really nicely.
+This morning there were a few more issues with the database migrations and the various associations between the models. But after ironing out some details as a group we managed to achieve a hell of a lot with our day.
+
+A topic of debate today was centred around the payment system and how we were going to keep track of what users owe what amount to what event. This all came about through the realisation that we needed to generate a whole new model to store a list of invitees to an event. This list is generated on the creation of an event when an organiser adds his friends. When he hits submit, this will shoot off an email inviting them to the event. If an invitee consents to being part of the event by clicking a link in the email, the invitee is then taken to the site to complete the registration process by entering a password. This then creates an instance of a user and thus adds him into our Debts table. We know that the event organiser, when filling out the event details, needs to input some kind of monetary value that he needs to chase down. The questions that came out of modelling the invitees was whether or not to input the total amount the organiser requires to make an event happen, or whether he should input a single amount that represents what each individual invitee owes. For this, we would be working under the assumption that each invitee owes the exact same amount. The flip side to this was whether we should actually be working under the assumption that the organiser is owed a fixed amount and as invitees join and drop out of the event, the total amount dynamically distributes itself amongst the remaining users. This seemed to be a much more riskier model as there were a lot of edge cases to consider. This is definitely where we would like the app to be, but we came to the consensus that for the first iteration we will focus on building the most simplest, basic form of our app on which we can improve on in future iterations.
+
+This idea of working through iterations has been a really interesting way of thinking about development. It completely removes the pressure that comes with the expectation of delivering a finished product by a certain date. Through fast deployment and really short sharp work cycles, the site is revealed through regular iterations starting in its most simplistic form. It enables us to demonstrate its core functionality from the very beginning, which we wouldn't really get to do when diving head first into tackling the most complex version of our features for final delivery months down the line. It wouldn't really be an efficient use of time if, after spending months of work developing the idea of a perfect product, it turns out to be a load of crap. Getting a working prototype out there quickly allows us to determine whether or not this really is a good idea and whether it's something worth investing our time in developing. 
+
+We hope to have our first iteration of Angry Kitty complete by the end of the week. A WEEK. It seems really achievable at this stage and it's an awesome way of working. We will end up constantly revisiting our code and improving it. Bugs will be fixed as fast as they are flagged, and the chances of randomly breaking the site and the subsequent time spent trying to fix it is eliminated. It's just an overall cleaner way of working and its great that the team has naturally adopted this way of developing.
+
+Anyway that was a tangent! Today we managed to get our emailing system set up and wired to the database. A peer to peer payment system has also been set up via Stripe and, on successul payment, triggers the sending of a confirmation email to the participant and a payment notification to the organiser. Tomorrow we'll need to get the triggers sorted for sending out an event invitation and the harassment emails.
+
+The scheduler is also pretty much sorted now. We've created various time buckets that represent the number of remaining days left till the payment deadline. The frequency of emails being sent out are defined inside of each time bucket. This now needs to be wired up to an automated rake task that will trigger the send of the harassment emails (a task for tomorrow). We haven't explored how to make a rake task at Makers Academy yet so tomorrow will be interesting.
+
+The event creation is also pretty much there. We have an organiser_id inside of our Event model which grabs the user_id from a user that creates an event. We've done this so we can query organisers directly on an event if we need access to this information, and to ensure that they don't get added into our Debt table.
+
+Tomorrow we will be switching pairing partners and rotating features. Lets see how things develop!
+
+xoxo
+
+
+
+
